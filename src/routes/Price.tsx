@@ -2,49 +2,6 @@ import { useQuery } from "react-query";
 import { fetchCoinHistory } from "../\bapi";
 import ApexCharts from "react-apexcharts";
 
-// interface PriceProps {
-//   coinId: string;
-// }
-// interface IHistorical {
-//   time_open: number;
-//   time_close: number;
-//   open: string;
-//   high: string;
-//   low: string;
-//   close: string;
-//   volume: string;
-//   market_cap: number;
-// }
-
-// function Price({ coinId }: PriceProps) {
-//   const { isLoading, data } = useQuery<IHistorical>(["ohlcv2", coinId], () =>
-//     fetchCoinHistory(coinId)
-//   );
-//   console.log(data);
-
-//   return (
-//     <div>
-//       {isLoading ? (
-//         "Loading Price"
-//       ) : (
-//         <ApexCharts
-//           type="candlestick"
-//           series={
-//             [
-//               // {
-//               //   name: "Price",
-//               //   data: data?.map((price) => parseFloat(price.close)) ?? [],
-//               // },
-//             ]
-//           }
-//         />
-//       )}
-//     </div>
-//   );
-// }
-
-// export default Price;
-
 interface ChartProps {
   coinId: string;
 }
