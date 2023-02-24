@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { Helmet } from "react-helmet";
 import {
@@ -216,7 +215,7 @@ function Coin() {
             </OverviewItem>
             <OverviewItem>
               <div>price:</div>
-              <div>{tickersData?.quotes.USD.price}</div>
+              <div>${tickersData?.quotes.USD.price.toFixed(3)}</div>
             </OverviewItem>
           </Overview>
           <span>{infoData?.description}</span>

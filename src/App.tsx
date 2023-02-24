@@ -1,6 +1,12 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Router from "./Router";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { brightTheme, darkTheme } from "./theme";
+import { atom, useRecoilState } from "recoil";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+
 const GlobalStyle = createGlobalStyle`
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&family=Noto+Serif+Khojki:wght@600&display=swap');
@@ -54,6 +60,14 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+button{
+	background-color: inherit;
+	border: none;
+	position: absolute;
+	right: 30px;
+	cursor: pointer;
+	margin-top: 20px;
+}
 
 
 
@@ -67,11 +81,23 @@ font-family: 'Noto Serif Khojki', serif;
 `;
 
 function App() {
+  const [isDark, setIsDark] = useState(false);
+  const toggleDark = () => setIsDark((current) => !current);
+
   return (
     <>
-      <Router />
-      <GlobalStyle />
-      <ReactQueryDevtools initialIsOpen={true} />
+      <ThemeProvider theme={isDark ? darkTheme : brightTheme}>
+        <button className="backGroundBtn" onClick={toggleDark}>
+          {isDark ? (
+            <FontAwesomeIcon icon={faSun} size="3x"></FontAwesomeIcon>
+          ) : (
+            <FontAwesomeIcon icon={faMoon} size="3x"></FontAwesomeIcon>
+          )}
+        </button>
+        <Router />
+        <GlobalStyle />
+        <ReactQueryDevtools initialIsOpen={true} />
+      </ThemeProvider>
     </>
   );
 }

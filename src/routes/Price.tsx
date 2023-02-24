@@ -65,7 +65,7 @@ function Price({ coinId }: ChartProps) {
     ["ohlcv", coinId],
     () => fetchCoinHistory(coinId),
     {
-      refetchInterval: 10000,
+      refetchInterval: 100000,
     }
   );
   console.log(data);
