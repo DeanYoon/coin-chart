@@ -90,13 +90,13 @@ function Coins() {
                   pathname: `/${coin.id}`,
                   state: {
                     name: coin.name,
-                    imgUrl: `https://coinicons-api.vercel.app/api/icon/${coin?.symbol.toLowerCase()}`,
+                    imgUrl: `https://coinicons-api.vercel.app/api/icon/${coin?.symbol?.toLowerCase()}`,
                   },
                 }}
               >
                 <Rank>{coin.rank}.</Rank>
                 <Img
-                  src={`https://coinicons-api.vercel.app/api/icon/${coin?.symbol.toLowerCase()}`}
+                  src={`https://coinicons-api.vercel.app/api/icon/${coin?.symbol?.toLowerCase()}`}
                 />
                 {coin.name} &rarr;
               </Link>

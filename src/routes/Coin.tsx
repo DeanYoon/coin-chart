@@ -193,7 +193,7 @@ function Coin() {
                 ? state.imgUrl
                 : infoLoading
                 ? ""
-                : `https://coinicons-api.vercel.app/api/icon/${infoData?.symbol.toLowerCase()}`
+                : `https://coinicons-api.vercel.app/api/icon/${infoData?.symbol?.toLowerCase()}`
             }
           />
 
