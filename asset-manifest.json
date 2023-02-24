@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/coin-chart/static/js/main.ce5ded18.js",
+    "index.html": "/coin-chart/index.html",
+    "main.ce5ded18.js.map": "/coin-chart/static/js/main.ce5ded18.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.ce5ded18.js"
+  ]
+}
