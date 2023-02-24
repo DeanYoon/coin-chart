@@ -89,7 +89,11 @@ function App() {
       <ThemeProvider theme={isDark ? darkTheme : brightTheme}>
         <button className="backGroundBtn" onClick={toggleDark}>
           {isDark ? (
-            <FontAwesomeIcon icon={faSun} size="3x"></FontAwesomeIcon>
+            <FontAwesomeIcon
+              icon={faSun}
+              color="white"
+              size="3x"
+            ></FontAwesomeIcon>
           ) : (
             <FontAwesomeIcon icon={faMoon} size="3x"></FontAwesomeIcon>
           )}
