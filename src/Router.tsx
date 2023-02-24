@@ -4,7 +4,7 @@ import Coins from "./routes/Coins";
 
 function Router() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/coin-chart">
       <Switch>
         <Route path={"/:coinId"}>
           <Coin />
