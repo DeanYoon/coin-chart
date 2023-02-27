@@ -2,10 +2,16 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Router from "./Router";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { brightTheme, darkTheme } from "./theme";
-import { atom, useRecoilState } from "recoil";
+import {
+  atom,
+  useRecoilState,
+  useRecoilValue,
+  useSetRecoilState,
+} from "recoil";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { isDarkAtom } from "./atoms";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -81,13 +87,14 @@ font-family: 'Noto Serif Khojki', serif;
 `;
 
 function App() {
-  const [isDark, setIsDark] = useState(false);
-  const toggleDark = () => setIsDark((current) => !current);
+  const isDark = useRecoilValue(isDarkAtom);
+  const setterFn = useSetRecoilState(isDarkAtom);
+  const toggleDarkAtom = () => setterFn((prev) => !prev);
 
   return (
     <>
       <ThemeProvider theme={isDark ? darkTheme : brightTheme}>
-        <button className="backGroundBtn" onClick={toggleDark}>
+        <button className="backGroundBtn" onClick={toggleDarkAtom}>
           {isDark ? (
             <FontAwesomeIcon
               icon={faSun}

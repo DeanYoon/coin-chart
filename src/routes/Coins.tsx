@@ -1,9 +1,12 @@
 import { Helmet } from "react-helmet";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { fetchCoins } from "../\bapi";
+import { isDarkAtom } from "../atoms";
 
+interface ICoinsProps {}
 const Container = styled.div`
   padding: 0px 10px;
   max-width: 480px;
@@ -68,7 +71,7 @@ interface ICoin {
   type: string;
 }
 
-function Coins() {
+function Coins({}: ICoinsProps) {
   const { isLoading, data } = useQuery<ICoin[]>(["allCoins"], fetchCoins);
 
   return (

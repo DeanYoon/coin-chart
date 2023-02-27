@@ -10,11 +10,6 @@ const root = ReactDOM.createRoot(
 );
 const queryClient = new QueryClient();
 
-// const themes = {
-//   light: lightTheme,
-//   dark: darkTheme,
-// };
-
 root.render(
   <React.StrictMode>
     <RecoilRoot>

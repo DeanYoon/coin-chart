@@ -13,6 +13,8 @@ import { fetchCoinInfo, fetchCoinTickers } from "../\bapi";
 import Chart from "./Chart";
 import Price from "./Price";
 
+interface ICoinProps {}
+
 interface RouteParams {
   coinId: string;
 }
@@ -158,7 +160,7 @@ interface PriceData {
   };
 }
 
-function Coin() {
+function Coin({}: ICoinProps) {
   const { coinId } = useParams<RouteParams>();
   const { state } = useLocation<RouteState>();
   const priceMatch = useRouteMatch("/:coinId/price");

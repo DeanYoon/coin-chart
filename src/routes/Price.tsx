@@ -1,6 +1,8 @@
 import { useQuery } from "react-query";
 import { fetchCoinHistory } from "../\bapi";
 import ApexCharts from "react-apexcharts";
+import { useRecoilValue } from "recoil";
+import { isDarkAtom } from "../atoms";
 
 interface ChartProps {
   coinId: string;
@@ -18,6 +20,8 @@ interface IHistorical {
 }
 
 function Price({ coinId }: ChartProps) {
+  const isDark = useRecoilValue(isDarkAtom);
+
   const { isLoading, data } = useQuery<IHistorical[]>(
     ["ohlcv", coinId],
     () => fetchCoinHistory(coinId),
@@ -47,12 +51,16 @@ function Price({ coinId }: ChartProps) {
             },
           ]}
           options={{
+            theme: {
+              mode: isDark ? "dark" : "light",
+            },
             chart: {
               height: 500,
               width: 500,
               toolbar: {
                 show: false,
               },
+              background: "transparent",
             },
             grid: {
               show: false,
